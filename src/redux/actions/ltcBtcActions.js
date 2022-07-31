@@ -6,7 +6,6 @@ import {
 
 export const addLtcBtc = ltcbtc => async dispatch => {
 	
-	
     localStorage.setItem('LTCBTC', JSON.stringify(ltcbtc));
 
     
