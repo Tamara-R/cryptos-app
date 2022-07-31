@@ -11,7 +11,7 @@ import { addLtcWSUsd } from '../../redux/actions/liveSymbolsActions/ltcUsdWSActi
 const LtcUsd = () => {
 
     let [message, setMessage] = useState([]);
-    let [ ltcUSD, setLtcUSD ] = useState([]);
+    
     const { isAuth }  = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
