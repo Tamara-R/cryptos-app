@@ -6,6 +6,7 @@ import Header from '../layout/Header';
 import Meta from '../layout/Meta';
 import Button from '../layout/Button';
 import { addBtcUsd } from '../../redux/actions/btcUsdActions';
+import { addBtcWSUsd } from '../../redux/actions/liveSymbolsActions/btcUsdWSActions'
 
 const BtcUsd = () => {
 
@@ -33,6 +34,7 @@ const BtcUsd = () => {
             const btc = {"name": "BTCUSD", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
             localStorage.setItem("btcInfo", JSON.stringify(btc))
             setBtc(btc);
+            dispatch(addBtcWSUsd(btc))
         }
 
         ws.onerror = err => {

@@ -6,6 +6,7 @@ import Header from '../layout/Header';
 import Meta from '../layout/Meta';
 import Button from '../layout/Button';
 import { addLtcUsd } from '../../redux/actions/ltcUsdActions';
+import { addLtcWSUsd } from '../../redux/actions/liveSymbolsActions/ltcUsdWSActions';
 
 const LtcUsd = () => {
 
@@ -30,8 +31,7 @@ const LtcUsd = () => {
             }
 
             const ltc = {"name": "LTCUSD", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
-            localStorage.setItem("ltcInfo", JSON.stringify(ltc))
-            setLtcUSD(ltc)
+            dispatch(addLtcWSUsd(ltc))
         }
 
         // console.log(ltcUSD)

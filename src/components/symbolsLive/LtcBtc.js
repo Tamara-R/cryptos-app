@@ -6,7 +6,7 @@ import Header from '../layout/Header';
 import Meta from '../layout/Meta';
 import Button from '../layout/Button';
 import { addLtcBtc } from '../../redux/actions/ltcBtcActions';
-import { addLtcWSBtc } from '../../redux/actions/liveSymbolsActions/ltcBtcWSActions'
+import { addLtcWSBtc } from '../../redux/actions/liveSymbolsActions/ltcBtcWSActions';
 
 
 const LtcBtc = () => {
@@ -34,7 +34,8 @@ const LtcBtc = () => {
             const ltcbtc = {"name": "LTCBTC", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
             // localStorage.setItem("ltcBtcInfo", JSON.stringify(ltcbtc));
             // setLtcBTC(ltcbtc);
-            dispatch(addLtcWSBtc('ltcBtcInfo'))
+            dispatch(addLtcWSBtc(ltcbtc))
+            
         }
 
         ws.onerror = err => {
