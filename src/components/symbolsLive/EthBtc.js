@@ -6,6 +6,7 @@ import Header from '../layout/Header';
 import Meta from '../layout/Meta';
 import Button from '../layout/Button';
 import { addEthBtc } from '../../redux/actions/ethBtcActions';
+import { addEthUSdWS } from '../../redux/actions/liveSymbolsActions/ethBtcWSActions'
 
 
 const EthBtc= () => {
@@ -13,6 +14,7 @@ const EthBtc= () => {
     let [message, setMessage] = useState([]);
     let [ ethBTC, setethBTC ] = useState([]);
     const { isAuth }  = useSelector(state => state.auth);
+    const { ethbtc }  = useSelector(state => state.EthBtcWS);
 
     const dispatch = useDispatch();
     let navigate = useNavigate();
@@ -31,8 +33,9 @@ const EthBtc= () => {
             }
 
             const ethbtc = {"name": "ETHBTC", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
-            localStorage.setItem("ethBtcInfo", JSON.stringify(ethbtc))
-            setethBTC(ethbtc);
+            // localStorage.setItem("ethBtcInfo", JSON.stringify(ethbtc))
+            // setethBTC(ethbtc);
+            dispatch(addEthBtc(ethbtc))
         }
 
         ws.onerror = err => {
