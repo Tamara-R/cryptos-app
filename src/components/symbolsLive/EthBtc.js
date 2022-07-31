@@ -12,9 +12,8 @@ import { addEthUSdWS } from '../../redux/actions/liveSymbolsActions/ethBtcWSActi
 const EthBtc= () => {
 
     let [message, setMessage] = useState([]);
-    let [ ethBTC, setethBTC ] = useState([]);
+    // let [ ethBTC, setethBTC ] = useState([]);
     const { isAuth }  = useSelector(state => state.auth);
-    const { ethbtc }  = useSelector(state => state.EthBtcWS);
 
     const dispatch = useDispatch();
     let navigate = useNavigate();
