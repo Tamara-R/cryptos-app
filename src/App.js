@@ -23,7 +23,7 @@ function App() {
     dispatch(setUser());
     
 
-  }, [dispatch]);
+  }, []);
 
   return (
     <div className="ui container" style={{marginTop: 20}}>
