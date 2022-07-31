@@ -5,13 +5,14 @@ import Spinner from '../layout/Spinner';
 import Header from '../layout/Header';
 import Meta from '../layout/Meta';
 import Button from '../layout/Button';
-import { addLtcBtc } from '../../redux/actions/ltcBtcActions'
+import { addLtcBtc } from '../../redux/actions/ltcBtcActions';
+import { addLtcWSBtc } from '../../redux/actions/liveSymbolsActions/ltcBtcWSActions'
 
 
 const LtcBtc = () => {
 
     let [message, setMessage] = useState([]);
-    let [ ltcBTC, setLtcBTC ] = useState([]);
+    // let [ ltcBTC, setLtcBTC ] = useState([]);
     const { isAuth }  = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
@@ -31,8 +32,9 @@ const LtcBtc = () => {
             }
 
             const ltcbtc = {"name": "LTCBTC", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
-            localStorage.setItem("ltcBtcInfo", JSON.stringify(ltcbtc));
-            setLtcBTC(ltcbtc);
+            // localStorage.setItem("ltcBtcInfo", JSON.stringify(ltcbtc));
+            // setLtcBTC(ltcbtc);
+            dispatch(addLtcWSBtc('ltcBtcInfo'))
         }
 
         ws.onerror = err => {
