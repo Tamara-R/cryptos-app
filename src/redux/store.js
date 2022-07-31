@@ -12,13 +12,26 @@ import {
     LtcBtcReducer
 } from './reducers/symbolsReducers';
 
+import { 
+    BtcUsdWSReducer, 
+    EthUsdWSReducer,
+    EthBtcWSReducer,
+    LtcBtcWSReducer,
+    LtcUsdWSReducer
+} from './reducers/symbolsLiveReducers';
+
 const reducer = combineReducers({
     auth: authReducer,
     BtcUsd: BtcUsdReducer,
     EthUsd: EthUsdReducer,
     EthBtc: EthBtcReducer,
     LtcUsd: LtcUsdReducer,
-    LtcBtc: LtcBtcReducer
+    LtcBtc: LtcBtcReducer,
+    BtcUsdWS: BtcUsdWSReducer,
+    EthUsdWS: EthUsdWSReducer,
+    EthBtcWS: EthBtcWSReducer,
+    LtcBtcWS: LtcBtcWSReducer,
+    LtcUsdWS: LtcUsdWSReducer
 });
 
 let initialState = {};
