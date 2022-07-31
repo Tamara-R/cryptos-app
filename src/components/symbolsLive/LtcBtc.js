@@ -34,7 +34,8 @@ const LtcBtc = () => {
             const ltcbtc = {"name": "LTCBTC", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
             // localStorage.setItem("ltcBtcInfo", JSON.stringify(ltcbtc));
             // setLtcBTC(ltcbtc);
-            dispatch(addLtcWSBtc(ltcbtc))
+            dispatch(addLtcWSBtc(ltcbtc));
+            dispatch(addLtcBtc(ltcbtc))
             
         }
 

@@ -34,6 +34,7 @@ const EthUsd = () => {
             const eth = {"name": "ETHUSD", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
             // localStorage.setItem("ethInfo", JSON.stringify(eth))
             // setEthUSD(eth)
+            dispatch(addEthUSd(eth))
             dispatch(addEthUSdWS(eth))
         }
 

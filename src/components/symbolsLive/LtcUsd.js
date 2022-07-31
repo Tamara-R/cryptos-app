@@ -32,6 +32,7 @@ const LtcUsd = () => {
 
             const ltc = {"name": "LTCUSD", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
             dispatch(addLtcWSUsd(ltc))
+            dispatch(addLtcUsd(ltc))
         }
 
         // console.log(ltcUSD)
