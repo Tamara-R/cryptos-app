@@ -6,11 +6,12 @@ import Header from '../layout/Header';
 import Meta from '../layout/Meta';
 import Button from '../layout/Button';
 import { addEthUSd } from '../../redux/actions/ethUsdActions';
+import { addEthUSdWS } from '../../redux/actions/liveSymbolsActions/ethUsdWSActions';
 
 const EthUsd = () => {
 
     let [message, setMessage] = useState([]);
-    let [ ethUSD, setEthUSD ] = useState([]);
+    // let [ ethUSD, setEthUSD ] = useState([]);
     const { isAuth }  = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
@@ -31,8 +32,9 @@ const EthUsd = () => {
             }
 
             const eth = {"name": "ETHUSD", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
-            localStorage.setItem("ethInfo", JSON.stringify(eth))
-            setEthUSD(eth)
+            // localStorage.setItem("ethInfo", JSON.stringify(eth))
+            // setEthUSD(eth)
+            dispatch(addEthUSdWS(eth))
         }
 
         ws.onerror = err => {
