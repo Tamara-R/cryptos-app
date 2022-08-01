@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Meta from './layout/Meta';
 import Header from './layout/Header'
@@ -14,7 +14,7 @@ import { removeLtcBtc } from '../redux/actions/ltcBtcActions';
 import { removeLtcUsd } from '../redux/actions/ltcUsdActions';
 
 const Favourites = () => {
-
+    
     const { btcusd }  = useSelector(state => state.BtcUsd);
     const { ethusd }  = useSelector(state => state.EthUsd);
     const { ethbtc }  = useSelector(state => state.EthBtc);
@@ -52,9 +52,9 @@ const Favourites = () => {
             <Header />
             {btcusd ? <BtcUsdStatic onClick={removeBtcUSDFromFavs} /> : null}
             {ethbtc ? <EthBtcStatic onClick={removeEthBTCFromFavs} /> : null}
-            {/* {ethusd ? <EthUsdStatic onClick={removeEthUSDFromFavs} /> : null} */}
+            {ethusd ? <EthUsdStatic onClick={removeEthUSDFromFavs} /> : null}
             {ltcbtc ? <LtcBtcStatic onClick={removeLtcBTCFromFavs} /> : null}
-            {/* {ltcusd ? <LtcUsdStatic onClick={removeLtcUSDFromFavs} /> : null} */}
+            {ltcusd ? <LtcUsdStatic onClick={removeLtcUSDFromFavs} /> : null}
            
         </div>
     )

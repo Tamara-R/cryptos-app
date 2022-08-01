@@ -16,7 +16,6 @@ export const addBtcUsd = btcusd => async dispatch => {
 };
 
 export const getBtcUsd = btcusd => async dispatch => {
-	
 
     dispatch({ type: GET_BTCUSD, payload: JSON.parse(localStorage.getItem('BTCUSD')) });
 	
