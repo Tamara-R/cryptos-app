@@ -1,4 +1,4 @@
-import { SET_USER } from "../../constants/auth";
+import { LOGOUT, SET_USER } from "../../constants/auth";
 
 
 export const setUser = () => {
@@ -8,4 +8,12 @@ export const setUser = () => {
         payload: "Tamara Ranisavljevic"
     }
 }
+
+export const logout = () => {
+    return {
+        type: LOGOUT
+    }
+}
+
+
 

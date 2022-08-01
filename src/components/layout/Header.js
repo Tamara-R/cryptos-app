@@ -1,21 +1,27 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Button from './Button';
-import { setUser } from '../../redux/actions/authActions';
+import { setUser, logout } from '../../redux/actions/authActions';
 
 const Header = () => {
 
+  
   const { isAuth }  = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
 
   useEffect(() => {
     
-    dispatch(setUser());
+    login();
   
   }, [])
+
+
+  const login = () => {
+    dispatch(setUser());
+  }
   
 
   return (
@@ -33,10 +39,18 @@ const Header = () => {
                 {
                   !isAuth  && (
                     <div className="right menu">
-                      <Button onClick={() => dispatch(setUser())} className={"ui teal small button"} title={"Login"} style={{marginBottom: 5 }}/>
+                      <Button onClick={login} className={"ui teal small button"} title={"Login"} style={{marginBottom: 5 }}/>
                     </div>
                   )
                 }
+
+                {/* {
+                  isAuth  && (
+                    <div className="right menu">
+                      <Button onClick={() => dispatch(logout())} className={"ui teal small button"} title={"Logout"} style={{marginBottom: 5 }}/>
+                    </div>
+                  )
+                } */}
 
             </div>
     </div>

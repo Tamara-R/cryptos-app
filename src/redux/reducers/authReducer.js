@@ -1,4 +1,4 @@
-import { SET_USER } from "../../constants/auth";
+import { LOGOUT, SET_USER } from "../../constants/auth";
 
 export const authReducer = ( state = {}, action) => {
     switch(action.type) {
@@ -8,7 +8,12 @@ export const authReducer = ( state = {}, action) => {
                 user: action.payload,
                 isAuth: true
             }
-        
+        case LOGOUT: 
+            return {
+                ...state,
+                user: {},
+                isAuth: false
+            }
         default: 
             return state;
 
