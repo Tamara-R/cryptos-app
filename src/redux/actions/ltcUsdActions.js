@@ -16,10 +16,7 @@ export const addLtcUsd = ltcusd => async dispatch => {
 
 export const getLtcUsd = ltcusd => async dispatch => {
 	
-	
-    JSON.parse(localStorage.getItem(ltcusd))
-
-    dispatch({ type: GET_LTCUSD, payload: ltcusd });
+    dispatch({ type: GET_LTCUSD, payload: JSON.parse(localStorage.getItem(ltcusd)) });
 	
 };
 

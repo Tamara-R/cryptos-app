@@ -1,18 +1,32 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Meta from '../layout/Meta';
 import CommonStatic from './CommonStatic';
 import Button from '../layout/Button';
+import { getEthBtc } from '../../redux/actions/ethBtcActions';
 
 const EthBtcStatic = ({onClick}) => {
     
     const { isAuth }  = useSelector(state => state.auth);
+    const { ethbtc }  = useSelector(state => state.EthBtc);
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      dispatch(getEthBtc('ETHBTC'))
+    }, [dispatch])
+    
 
     
     return(
         <div>
             <Meta title={"ETHBTC"} />
-            <CommonStatic value={'ETHBTC'} />
+            <CommonStatic 
+                name={ethbtc.name}
+                lastPrice={ethbtc.lastPrice}
+                high={ethbtc.high}
+                low={ethbtc.low}
+            />
             {isAuth && (
                 <Button 
                     onClick={onClick} 

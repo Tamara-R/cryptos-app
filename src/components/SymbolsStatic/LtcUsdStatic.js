@@ -1,18 +1,30 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Meta from '../layout/Meta';
 import CommonStatic from './CommonStatic';
 import Button from '../layout/Button';
+import { getLtcUsd } from '../../redux/actions/ltcUsdActions';
 
 
 const LtcUsdStatic = ({onClick}) => {
     const { isAuth }  = useSelector(state => state.auth);
+    const { ltcusd }  = useSelector(state => state.LtcUsd);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      dispatch(getLtcUsd('LTCUSD'))
+    }, [dispatch])
 
  
     return(
         <div>
             <Meta title={"LTCUSD"} />
-            <CommonStatic value={'ltcInfo'} />
+            <CommonStatic 
+                name={ltcusd.name}
+                lastPrice={ltcusd.lastPrice}
+                high={ltcusd.high}
+                low={ltcusd.low}
+            />
             {isAuth && (
                 <Button 
                     onClick={onClick} 

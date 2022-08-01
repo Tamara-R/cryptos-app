@@ -18,9 +18,8 @@ export const addEthBtc = ethbtc => async dispatch => {
 
 export const getEthBtc = ethbtc => async dispatch => {
 	
-	JSON.parse(localStorage.getItem(ethbtc))
 
-    dispatch({ type: GET_ETHBTC, payload: ethbtc });
+    dispatch({ type: GET_ETHBTC, payload: JSON.parse(localStorage.getItem(ethbtc)) });
 	
 };
 

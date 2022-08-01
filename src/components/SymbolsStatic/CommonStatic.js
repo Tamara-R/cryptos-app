@@ -1,16 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { } from 'react';
 import Spinner from '../layout/Spinner';
 
-const CommonStatic = ({value}) => {
+const CommonStatic = ({name, lastPrice, high, low}) => {
 
-    let [ data, setData ] = useState();
-
-    useEffect(() => {
-        setData(items)
-    }, [])
     
-    let items = JSON.parse(localStorage.getItem(value));
-
     return(
         <div>
             <table className='ui teal table'>
@@ -23,15 +16,15 @@ const CommonStatic = ({value}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {!items ? (
+                    {null ? (
                         <Spinner />
                     ) : (
                         
                         <tr key={1}>
-                            <td key={2}>{items.name}</td>
-                            <td key={3}>{items.lastPrice}</td>
-                            <td key={4}>{items.high}</td>
-                            <td key={5}>{items.low}</td>
+                            <td key={2}>{name}</td>
+                            <td key={3}>{lastPrice}</td>
+                            <td key={4}>{high}</td>
+                            <td key={5}>{low}</td>
                         </tr>
                     
                     )}

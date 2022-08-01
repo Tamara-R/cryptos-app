@@ -15,9 +15,8 @@ export const addLtcBtc = ltcbtc => async dispatch => {
 
 export const getLtcBtc = ltcbtc => async dispatch => {
 	
-    JSON.parse(localStorage.getItem(ltcbtc))
 
-    dispatch({ type: GET_LTCBTC, payload: ltcbtc });
+    dispatch({ type: GET_LTCBTC, payload: JSON.parse(localStorage.getItem(ltcbtc)) });
 	
 };
 

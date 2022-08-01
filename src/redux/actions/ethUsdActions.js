@@ -16,9 +16,8 @@ export const addEthUSd = ethusd => async dispatch => {
 
 export const getEthUSd = ethusd => async dispatch => {
 	
-	JSON.parse(localStorage.getItem(ethusd))
 
-    dispatch({ type: GET_ETHUSD, payload: ethusd });
+    dispatch({ type: GET_ETHUSD, payload: JSON.parse(localStorage.getItem(ethusd)) });
 	
 };
 
