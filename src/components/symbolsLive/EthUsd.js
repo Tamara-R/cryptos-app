@@ -31,7 +31,7 @@ const EthUsd = () => {
                 setMessage(JSON.parse(msg.data));
             }
 
-            const eth = {"name": "ETHUSD", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
+            let eth = {"name": "ETHUSD", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
             // localStorage.setItem("ethInfo", JSON.stringify(eth))
             // setEthUSD(eth)
             dispatch(addEthUSd(eth))
@@ -51,7 +51,8 @@ const EthUsd = () => {
 
 
     const addToFavs = () => {
-        dispatch(addEthUSd('ETHUSD'))
+        dispatch(addEthUSd({"name": "ETHUSD", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}))
+        dispatch(addEthUSdWS({"name": "ETHUSD", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}))
         navigate("/favorites", { replace: true });
     }
     

@@ -20,6 +20,7 @@ const Favourites = () => {
     const { ethbtc }  = useSelector(state => state.EthBtc);
     const { ltcusd }  = useSelector(state => state.LtcUsd);
     const { ltcbtc }  = useSelector(state => state.LtcBtc);
+    const { ethbtc: ethBTCWS }  = useSelector(state => state.EthBtcWS);
 
     const dispatch = useDispatch();
 
@@ -58,11 +59,12 @@ const Favourites = () => {
         <div>
             <Meta title={"Favourites"} />
             <Header />
-            {btcusd ? <BtcUsdStatic onClick={removeBtcUSDFromFavs} /> : null}
-            {ethbtc ? <EthBtcStatic onClick={removeEthBTCFromFavs} /> : null}
-            {ethusd ? <EthUsdStatic onClick={removeEthUSDFromFavs} /> : null}
-            {ltcbtc ? <LtcBtcStatic onClick={removeLtcBTCFromFavs} /> : null}
-            {ltcusd ? <LtcUsdStatic onClick={removeLtcUSDFromFavs} /> : null}
+            {/* {btcusd ? <BtcUsdStatic onClick={removeBtcUSDFromFavs} /> : null} */}
+            {/* {ethbtc ? <EthBtcStatic onClick={removeEthBTCFromFavs} /> : null} */}
+            {/* {ethusd ? <EthUsdStatic onClick={removeEthUSDFromFavs} /> : null} */}
+            {/* {ltcbtc ? <LtcBtcStatic onClick={removeLtcBTCFromFavs} /> : null} */}
+            {/* {ltcusd ? <LtcUsdStatic onClick={removeLtcUSDFromFavs} /> : null} */}
+           
         </div>
     )
 }

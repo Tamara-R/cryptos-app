@@ -31,7 +31,7 @@ const LtcBtc = () => {
                 setMessage(JSON.parse(msg.data));
             }
 
-            const ltcbtc = {"name": "LTCBTC", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
+            let ltcbtc = {"name": "LTCBTC", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
             // localStorage.setItem("ltcBtcInfo", JSON.stringify(ltcbtc));
             // setLtcBTC(ltcbtc);
             dispatch(addLtcWSBtc(ltcbtc));
@@ -51,7 +51,8 @@ const LtcBtc = () => {
 
     
     const addToFavs = () => {
-        dispatch(addLtcBtc('LTCBTC'))
+        dispatch(addLtcWSBtc({"name": "LTCBTC", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}));
+        dispatch(addLtcBtc({"name": "LTCBTC", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}))
         navigate("/favorites", { replace: true });
     }
     

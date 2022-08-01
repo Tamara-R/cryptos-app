@@ -30,7 +30,7 @@ const LtcUsd = () => {
                 setMessage(JSON.parse(msg.data));
             }
 
-            const ltc = {"name": "LTCUSD", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
+            let ltc = {"name": "LTCUSD", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
             dispatch(addLtcWSUsd(ltc))
             dispatch(addLtcUsd(ltc))
         }
@@ -49,7 +49,8 @@ const LtcUsd = () => {
 
     
     const addToFavs = () => {
-        dispatch(addLtcUsd('LTCUSD'))
+        dispatch(addLtcWSUsd({"name": "LTCUSD", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}))
+        dispatch(addLtcUsd({"name": "LTCUSD", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}))
         navigate("/favorites", { replace: true });
     }
     

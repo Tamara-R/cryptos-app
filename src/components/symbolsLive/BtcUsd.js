@@ -31,7 +31,7 @@ const BtcUsd = () => {
             if(Array.isArray(JSON.parse(msg.data)[1])){
                 setMessage(JSON.parse(msg.data));
             }
-            const btc = {"name": "BTCUSD", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
+            let btc = {"name": "BTCUSD", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
             localStorage.setItem("btcInfo", JSON.stringify(btc))
             setBtc(btc);
             dispatch(addBtcWSUsd(btc))
@@ -52,7 +52,8 @@ const BtcUsd = () => {
 
     const addToFavs = () => {
         // localStorage.setItem("BTCUSD", JSON.stringify("BTCUSD"))
-        dispatch(addBtcUsd('BTCUSD'))
+        dispatch(addBtcUsd({"name": "BTCUSD", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}))
+        dispatch(addBtcWSUsd({"name": "BTCUSD", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}))
         navigate("/favorites", { replace: true });
     }
 

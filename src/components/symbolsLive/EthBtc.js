@@ -31,7 +31,7 @@ const EthBtc= () => {
                 setMessage(JSON.parse(msg.data));
             }
 
-            const ethbtc = {"name": "ETHBTC", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
+            let ethbtc = {"name": "ETHBTC", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}
             // localStorage.setItem("ethBtcInfo", JSON.stringify(ethbtc))
             // setethBTC(ethbtc);
             dispatch(addEthBtc(ethbtc));
@@ -52,7 +52,8 @@ const EthBtc= () => {
 
     
     const addToFavs = () => {
-        dispatch(addEthBtc('ETHBTC'))
+        dispatch(addEthBtc({"name": "ETHBTC", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}))
+        dispatch(addEthBtc({"name": "ETHBTC", "lastPrice": message[1][6], "high": message[1][8], "low": message[1][9]}));
         navigate("/favorites", { replace: true });
     }
     
