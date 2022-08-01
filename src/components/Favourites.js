@@ -7,11 +7,11 @@ import EthBtcStatic from './SymbolsStatic/EthBtcStatic';
 import EthUsdStatic from './SymbolsStatic/EthUsdStatic';
 import LtcBtcStatic from './SymbolsStatic/LtcBtcStatic';
 import LtcUsdStatic from './SymbolsStatic/LtcUsdStatic';
-import { getBtcUsd, removeBtcUsd } from '../redux/actions/btcUsdActions';
-import { getEthUSd, removeEthUSD } from '../redux/actions/ethUsdActions';
-import { getEthBtc, removeEthBtc } from '../redux/actions/ethBtcActions';
-import { getLtcBtc, removeLtcBtc } from '../redux/actions/ltcBtcActions';
-import { getLtcUsd, removeLtcUsd } from '../redux/actions/ltcUsdActions';
+import { removeBtcUsd } from '../redux/actions/btcUsdActions';
+import { removeEthUSD } from '../redux/actions/ethUsdActions';
+import { removeEthBtc } from '../redux/actions/ethBtcActions';
+import { removeLtcBtc } from '../redux/actions/ltcBtcActions';
+import { removeLtcUsd } from '../redux/actions/ltcUsdActions';
 
 const Favourites = () => {
 
@@ -24,17 +24,7 @@ const Favourites = () => {
 
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-
-        // dispatch(getBtcUsd('BTCUSD'));
-    //     dispatch(getEthUSd('ETHUSD'));
-    //     dispatch(getEthBtc('ETHBTC'));
-    //     dispatch(getLtcBtc('LTCBTC'));
-    //     dispatch(getLtcUsd('LTCUSD'));
-
-    // }, [dispatch])
-
-    
+   
     const removeBtcUSDFromFavs = () => {
         dispatch(removeBtcUsd(btcusd));
     }
